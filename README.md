@@ -6,3 +6,5 @@ pip install aloe
 
 After installing aloe, run the following command:
 aloe <path_to_feature_file_or_dir>
+
+Note also that the Geckdriver provided is the 64-bit Windows one. If you have different setup you may need to change it.
