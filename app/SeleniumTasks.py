@@ -1,17 +1,17 @@
 from contextlib import contextmanager
 
+import os
 from aloe import around
 from aloe import world
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-
 @around.all
 @contextmanager
 def with_browser():
-
-    world.browser = webdriver.Firefox(executable_path
-                                      =r'C:\Users\Pesho\PycharmProjects\Cucumber\conf\geckodriver.exe')
+    driver_path = os.path.dirname(os.path.realpath(__file__)).replace("app", "conf\geckodriver.exe")
+    world.browser = webdriver.Firefox(executable_path = driver_path)
+    world.browser.maximize_window()
     yield
     world.browser.quit()
     delattr(world, 'browser')
